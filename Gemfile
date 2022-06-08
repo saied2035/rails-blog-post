@@ -70,12 +70,12 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'ffi'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'ffi'
 end
 
-group :development, :test do 
+group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '6.0.0.rc1'
 end
