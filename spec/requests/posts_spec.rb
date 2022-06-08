@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "Users", type: :request do
-  before(:example) {get users_path}
+describe "Posts", type: :request do
+  before(:example) {get user_posts_path(user_id:15)}
   it "GET /index status" do
     expect(response).to have_http_status(200)
   end
@@ -9,11 +9,11 @@ describe "Users", type: :request do
     expect(response).to render_template(:index)
   end
   it "GET /index include correct placeholder" do
-    expect(response.body).to include('Here is a list of users')
+    expect(response.body).to include('Here is a list of posts for a user')
   end
 
-describe "User", type: :request do
-  before(:example) {get user_path({id:12})}
+describe "Post", type: :request do
+  before(:example) {get user_post_path({id:12})}
     it "GET /show status" do
       expect(response).to have_http_status(200)
     end
@@ -21,8 +21,9 @@ describe "User", type: :request do
       expect(response).to render_template(:show)
     end
     it "GET /show include correct placeholder" do
-      expect(response.body).to include('Here are information about specific user')
+      expect(response.body).to include('Here are information about specific post')
     end           
 end
 
 end
+
