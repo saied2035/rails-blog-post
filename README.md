@@ -21,10 +21,10 @@
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
-for SSH:
-- `git clone git@github.com:saied2035/rails-blog-post.git`
-for https:
-- `git clone https://github.com/saied2035/rails-blog-post.git`
+- for SSH:
+     - `git clone git@github.com:saied2035/rails-blog-post.git`
+- for https:
+     - `git clone https://github.com/saied2035/rails-blog-post.git`
 then run:
 - `bundle install`
 - `npm install`
