@@ -1,15 +1,10 @@
 class CreateComment < ActiveRecord::Migration[7.0]
   def change
     create_table :comment do |t|
-      t.bigint :AuthorId
-      t.bigint :PostId
+      t.references :Author, index: true, foreign_key: {to_table: :user}
+      t.references :Post, index: true, foreign_key: {to_table: :post}
       t.text :Text
-      t.timestamps
-      add_foreign_key :comment, :user, column: :AuthorId, primary_key: "id"
-      add_foreign_key :comment, :post, column: :PostId, primary_key: "id"
-      add_index :comment, :AuthorId
-      add_index :comment, :PostId      
+      t.timestamps     
     end
-
   end
 end
