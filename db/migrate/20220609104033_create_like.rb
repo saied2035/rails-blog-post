@@ -1,14 +1,9 @@
 class CreateLike < ActiveRecord::Migration[7.0]
   def change
     create_table :like do |t|
-      t.bigint :AuthorId
-      t.bigint :PostId
+      t.references :Author, index: true, foreign_key: {to_table: :user}
+      t.references :Post, index: true, foreign_key: {to_table: :post}
       t.timestamps
-      add_foreign_key :like, :user, column: :AuthorId, primary_key: "id"
-      add_foreign_key :like, :post, column: :PostId, primary_key: "id"
-      add_index :like, :AuthorId
-      add_index :like, :PostId
     end
-
   end
 end
