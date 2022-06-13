@@ -5,8 +5,8 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :title, :limit => 32
       t.text :text
       t.timestamps
-      t.bigint :comments_counter
-      t.bigint :likes_counter
+      t.bigint :comments_counter, default: 0
+      t.bigint :likes_counter, default: 0
     end
   end
 end
