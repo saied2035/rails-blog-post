@@ -10,8 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_post
-   Post.all.where("author_id = #{params[:user_id]}").where("id = #{params[:id]}")
-
+   User.find(params[:user_id]).posts.find(params[:id])
   end
 
   def all_posts
