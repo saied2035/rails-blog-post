@@ -14,48 +14,48 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_104033) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comment", force: :cascade do |t|
-    t.bigint "Author_id"
-    t.bigint "Post_id"
-    t.text "Text"
+  create_table "comments", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "post_id", null: false
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Author_id"], name: "index_comment_on_Author_id"
-    t.index ["Post_id"], name: "index_comment_on_Post_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
-  create_table "like", force: :cascade do |t|
-    t.bigint "Author_id"
-    t.bigint "Post_id"
+  create_table "likes", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Author_id"], name: "index_like_on_Author_id"
-    t.index ["Post_id"], name: "index_like_on_Post_id"
+    t.index ["author_id"], name: "index_likes_on_author_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
   end
 
-  create_table "post", force: :cascade do |t|
-    t.bigint "Author_id"
-    t.string "Title", limit: 32
-    t.text "Text"
+  create_table "posts", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.string "title", limit: 32
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "CommentsCounter"
-    t.bigint "LikesCounter"
-    t.index ["Author_id"], name: "index_post_on_Author_id"
+    t.bigint "comments_counter", default: 0
+    t.bigint "likes_counter", default: 0
+    t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
-  create_table "user", force: :cascade do |t|
-    t.string "Name", limit: 32
-    t.string "Photo", limit: 2000
-    t.text "Bio"
+  create_table "users", force: :cascade do |t|
+    t.string "name", limit: 32
+    t.string "photo", limit: 2000
+    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "PostsCounter"
+    t.bigint "posts_counter", default: 0
   end
 
-  add_foreign_key "comment", "\"user\"", column: "Author_id"
-  add_foreign_key "comment", "post", column: "Post_id"
-  add_foreign_key "like", "\"user\"", column: "Author_id"
-  add_foreign_key "like", "post", column: "Post_id"
-  add_foreign_key "post", "\"user\"", column: "Author_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users", column: "author_id"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users", column: "author_id"
+  add_foreign_key "posts", "users", column: "author_id"
 end
