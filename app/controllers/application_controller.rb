@@ -1,3 +1,5 @@
 class ApplicationController < ActionController::Base
-  scope :current_user, -> { User.first }
+  def all_users
+    User.all 
+  end  
 end
