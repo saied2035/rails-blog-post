@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "views" %>
+<%= stylesheet_link_tag "users" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +6,8 @@
 	<title>users</title>
 </head>
 <body>
-  <h1>Here is a list of users</h1>
+  <main id ="container">  
+    <%= render @users %>
+  </main>  
 </body>
 </html>

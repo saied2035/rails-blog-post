@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "views" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +6,15 @@
 	<title>user's posts</title>
 </head>
 <body>
-  <h1>Here is a list of posts for a user</h1> 
+<main id ="container"> 
+  <%= render partial:'users/user', locals:{user: @user} %>
+  <% @posts.each do |post| %>
+   <%= render post%>
+   <section class="comment-section">
+    <%= render partial:'comments', as: 'comment', collection:post.recent_comments%>
+   </section>
+   <%end%>
+  <button id="show-posts">pagination</button>
+</main>   
 </body>
 </html>
