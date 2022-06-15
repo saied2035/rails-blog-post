@@ -7,4 +7,10 @@ class PostsController < ApplicationController
   def show
     @post = current_post
   end
+  def new
+    post = Post.new
+    respond_to do |format|
+      format.html { render :new, locals: { post: post } }
+    end
+  end 
 end
