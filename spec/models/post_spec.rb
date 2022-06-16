@@ -72,7 +72,7 @@ RSpec.describe Post, type: :model do
     expect(test_case.comments_counter).to eq(7) # all comments
     recent_comments = test_case.recent_comments 
     expect(recent_comments.length).to eq(5) # most recent 5 comments
-    # check that the fice comments in a desc ordering (newest frist)
+    # check that the five comments in a desc ordering (newest frist)
     expect(recent_comments[0].created_at > recent_comments[4].created_at).to eq true 
   end
 end
