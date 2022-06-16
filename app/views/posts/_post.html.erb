@@ -9,7 +9,9 @@
 </p>
  <small>
     Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%>       
-</small> 
+</small>
+  <%=render partial:'likes/like', locals:{like:@like,post_id:post.id,distination:params[:action]}%>
+
 </section>
 <%end%>
   
