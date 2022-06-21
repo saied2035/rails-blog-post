@@ -42,6 +42,10 @@ then run:
 - Twitter: [@SaiedGaffer](https://twitter.com/SaiedGaffer)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/saiedgaffer/)
 
+👤 **Salim Abdulai**
+- GitHub: [@RayhanTabase](https://github.com/RayhanTabase)
+- Twitter: [@RayhanTabase](https://twitter.com/@RayhanTabase)
+- LinkedIn: [Salim-Abdulai](https://linkedin.com/in/salim-abdulai-5430065b)
 
 ## 🤝 Contributing
 
