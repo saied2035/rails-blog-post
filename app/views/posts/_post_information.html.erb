@@ -8,6 +8,7 @@
    <button class="create-comment">Create comment</button>
   <%end%> 
 <%=render partial:'likes/like', locals:{like:@like,post_id:post.id,distination:params[:action]}%> 
+<%=render partial:'destroy', locals:{post:post}%>
 </section>
 <%if post.comments.length > 0 %>
 <section class="comment-section">
