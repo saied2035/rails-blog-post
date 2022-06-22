@@ -3,14 +3,14 @@ class LikesController < ApplicationController
     user = current_user
     post = current_post
     post.likes.where("author_id = #{user.id}").length.positive? && (
-      flash[:error] = 'Error: you already liked it.'
+      flash[:alert] = 'Error: you already liked it.'
       where_to_redirect(post)
       return
     )
 
     like = Like.new(author: user, post:)
     unless like.save
-      flash[:error] = 'Error: Like could not be saved'
+      flash[:alert] = 'Error: Like could not be saved'
       where_to_redirect(post)
       return
     end

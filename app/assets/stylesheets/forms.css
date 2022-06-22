@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  margin-bottom: 1rem;
+}
+
+.actions > input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-link {
+  color: blue;
+  text-decoration: underline;
+}
