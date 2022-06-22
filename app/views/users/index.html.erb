@@ -6,8 +6,15 @@
 	<title>users</title>
 </head>
 <body>
-  <main id ="container">  
-    <%= render @users %>
+  <main id ="container">
+
+    <% if user_signed_in? %> 
+     <%=render @users %>
+     <%else%> 
+       <%=link_to new_user_session_path do%>
+        <button>Sign in</button>
+      <%end%>  
+    <%end%>  
   </main>  
 </body>
 </html>
