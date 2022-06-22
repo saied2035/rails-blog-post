@@ -1,16 +1,20 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = all_users_post_controller
+    @current_user = current_user
     @posts = @user.posts.includes(:comments).order('id asc')
   end
 
   def show
     @post = current_post
+    @user = current_user
   end
 
   def new
+    post = Post.new
     respond_to do |format|
-      format.html { render :new, locals: { post: Post.new } }
+      format.html { render :new, locals: { post: } }
     end
   end
 

@@ -7,14 +7,17 @@
 <body>
 <main id ="container">
   <%= render partial:'users/user', locals:{user: @user} %>
+  <%if params[:user_id].to_i == @current_user.id%>
   <%=link_to new_user_post_path do%>
    <button class="create-post">Create post</button>
+  <%end%>
   <%end%>
   <% @posts.each do |post| %>
    <%= render post%>
    <%if post.comments.length > 0 %>
    <section class="comment-section">
-    <%= render partial:'comments', as: 'comment', collection:post.recent_comments%>
+    <%= render partial:'comments', as: 'comment', collection:post.recent_comments, 
+    locals:{post:post,user:@current_user,distination:params[:action]}%>
    </section>
    <%end%>
    <%end%>

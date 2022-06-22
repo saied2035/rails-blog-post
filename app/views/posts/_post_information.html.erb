@@ -8,10 +8,13 @@
    <button class="create-comment">Create comment</button>
   <%end%> 
 <%=render partial:'likes/like', locals:{like:@like,post_id:post.id,distination:params[:action]}%> 
-<%=render partial:'destroy', locals:{post:post}%>
+<%if can? :manage, post, author_id: @user.id%>
+  <%=render partial:'destroy', locals:{post:post}%>
+<%end%>
 </section>
 <%if post.comments.length > 0 %>
 <section class="comment-section">
-   <%= render partial:'comments', as: 'comment', collection:comments%>
+   <%= render partial:'comments', as: 'comment', collection:comments,
+   locals:{post:post,user:@current_user,distination:params[:action]}%>
 </section>
 <%end%>

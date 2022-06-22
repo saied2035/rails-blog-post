@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     respond_to do |format|
       format.html { render :new, locals: { comment: Comment.new } }
@@ -20,9 +21,23 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+
+    Comment.destroy(params[:id])
+    where_to_redirect_delete
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:text)
+  end
+
+  def where_to_redirect_delete
+    if params[:distination] == 'index'
+      redirect_back_or_to user_posts_url
+    else
+      redirect_back_or_to user_post_url(id: params[:post_id])
+    end
   end
 end
