@@ -4,6 +4,15 @@
   <div class="card">
      <h2><%= user.name%> </h2>
      <p class="post-num"> Number of posts: <%= user.posts_counter%></p>
-  </div class="card">
+  </div>
   <%end%>
+  <%if params[:controller] == 'users' %>
+     <%if params[:action] == 'show'%> 
+       <%=link_to 'Back', users_path ,class:"back-btn" %>
+     <%end%>
+  <%else%>
+     <%if params[:action] == 'index'%>
+       <%=link_to 'Back', user_path(user), class:"back-btn" %>        
+     <%end%>
+  <%end%>  
 </section>
