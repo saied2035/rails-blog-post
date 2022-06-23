@@ -41,7 +41,7 @@ RSpec.describe 'posts#index', type: :feature do
   it 'see number of posts counter of  the user' do
     expect(find_all('.post-num').count).to eq(1)
   end
-   it 'see posts titles counter of  the user' do
+   it 'see posts titles of the user' do
     expect(find_all('.title').count).to eq(5)
    end
    it 'see part of the posts text' do
