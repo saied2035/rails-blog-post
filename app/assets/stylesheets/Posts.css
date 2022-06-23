@@ -50,9 +50,11 @@ body {
   font-size: 15px;
   cursor: pointer;
 }
+
 .back-btn {
   align-self: center;
 }
+
 .create-comment,
 .add-like,
 .destroy {
