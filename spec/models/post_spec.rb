@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   user = User.new(name: 'Saied', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'developer',
-    email:'saied@gmail.com',password:'123456')
+                  email: 'saied@gmail.com', password: '123456')
   subject { Post.new(author: user, title: 'title', text: 'text') }
   before { subject }
 

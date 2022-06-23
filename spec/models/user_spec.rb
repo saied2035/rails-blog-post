@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Saied', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'developer',
-    email:'saied@gmail.com',password:'123456') }
+  subject do
+    User.new(name: 'Saied', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'developer',
+             email: 'saied@gmail.com', password: '123456')
+  end
   before { subject }
 
   it 'name is nil or blank' do
