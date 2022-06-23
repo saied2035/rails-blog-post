@@ -5,6 +5,7 @@
 	<title>user's posts</title>
 </head>
 <body>
+  <%=render 'users/sign_out' %>
 <main id ="container">
   <%= render partial:'users/user', locals:{user: @user} %>
   <%if params[:user_id].to_i == @current_user.id%>

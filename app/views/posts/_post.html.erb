@@ -9,7 +9,8 @@
 </p>
  <small>
     Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%>       
-</small> 
+</small>
+<%= button_to 'Create comment', new_user_post_comment_path(post_id:post.id),class:'create-comment', method: :get %> 
   <%=render partial:'likes/like', locals:{like:@like,post_id:post.id,distination:params[:action]}%>
 <%if can? :manage, post, author_id: @user.id%>
   <%=render partial:'destroy', locals:{post:post}%>

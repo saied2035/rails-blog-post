@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
+  after_action :save_my_previous_url, only: [:new]
   def new
     respond_to do |format|
       format.html { render :new, locals: { comment: Comment.new } }
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
     comment.post = post
     if comment.save
       flash[:notice] = 'Comment saved successfully'
-      redirect_to user_post_url(id: post.id)
+      redirect_to session[:my_previous_url]
     else
       flash[:alert] = 'Error: Comment could not be saved'
       redirect_to new_user_post_comment_url
@@ -40,4 +41,9 @@ class CommentsController < ApplicationController
       redirect_back_or_to user_post_url(id: params[:post_id])
     end
   end
+  
+  def save_my_previous_url
+    session[:my_previous_url] = URI(request.referer || '').path
+  end
+
 end
