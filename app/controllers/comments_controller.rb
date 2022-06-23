@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
     Comment.destroy(params[:id])
     where_to_redirect_delete
   end
@@ -41,9 +40,8 @@ class CommentsController < ApplicationController
       redirect_back_or_to user_post_url(id: params[:post_id])
     end
   end
-  
+
   def save_my_previous_url
     session[:my_previous_url] = URI(request.referer || '').path
   end
-
 end

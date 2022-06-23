@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def destroy
     Post.destroy(params[:id])
     redirect_to user_posts_url
-  end  
+  end
 
   private
 
