@@ -1,0 +1,3 @@
+<%=form_with model: post,url:user_post_url(id:post.id), method: :delete do |form| %>
+  <%=form.submit "destroy", class:"destroy" %>
+<% end %>

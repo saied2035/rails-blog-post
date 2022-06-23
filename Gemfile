@@ -21,6 +21,9 @@ gem 'puma', '~> 5.0'
 # installing devise gem
 gem 'devise'
 
+# installing cancancan
+gem 'cancancan', '~> 3.3'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 

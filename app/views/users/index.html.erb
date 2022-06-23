@@ -6,8 +6,8 @@
 	<title>users</title>
 </head>
 <body>
+  <%=render 'users/sign_out' %>
   <main id ="container">
-
     <% if user_signed_in? %> 
      <%=render @users %>
      <%else%> 

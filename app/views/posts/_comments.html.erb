@@ -1,4 +1,8 @@
 <p>
 <span class="comment"><%=comment.author.name%>:</span> 
 <span class="comment"><%=comment.text%></span>
+<% if can? :manage, comment, author_id: user.id %>
+<%= button_to 'Delete comment', user_post_comment_path(post_id:post.id,id:comment.id,distination:distination), 
+method: :delete %>
+<%end%>
 </p>

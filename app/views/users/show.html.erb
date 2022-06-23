@@ -6,6 +6,7 @@
 	<title>specific user</title>
 </head>
 <body>
+  <%=render 'users/sign_out' %>
 <main id ="container"> 
   <%= render @user%>
   <%= render partial: "bio" , locals:{bio:@user.bio}%>

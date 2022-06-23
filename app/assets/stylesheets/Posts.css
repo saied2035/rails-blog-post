@@ -39,7 +39,9 @@ body {
 
 .create-comment,
 .add-like,
-.create-post {
+.create-post,
+.destroy,
+.back-btn {
   border: 2px solid black;
   border-bottom-width: 4px;
   background: white;
@@ -47,4 +49,14 @@ body {
   padding: 0.5rem 0.5rem;
   font-size: 15px;
   cursor: pointer;
+}
+
+.back-btn {
+  align-self: center;
+}
+
+.create-comment,
+.add-like,
+.destroy {
+  margin-bottom: 1rem;
 }
