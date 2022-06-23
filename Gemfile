@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+# ruby '3.1.2'
 
 # linters
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -84,4 +84,5 @@ end
 group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '6.0.0.rc1'
+  gem "database_cleaner"
 end
