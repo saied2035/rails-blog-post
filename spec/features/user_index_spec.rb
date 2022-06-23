@@ -45,5 +45,5 @@ RSpec.describe 'users#index', type: :feature do
     find(:css, "a[href='/users/#{@user2.id}']").click
     expect(page).to have_current_path(user_path(id: @user2.id))
     expect(page).to have_content @user2.name
-  end  
+  end
 end
