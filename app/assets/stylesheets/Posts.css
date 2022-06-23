@@ -49,6 +49,9 @@ body {
   font-size: 15px;
   cursor: pointer;
 }
-.create-comment,.add-like,.destroy {
+
+.create-comment,
+.add-like,
+.destroy {
   margin-bottom: 1rem;
 }
