@@ -1,9 +1,18 @@
 <section class="user">
   <img class="image" src="<%=user.photo%>" alt="user-image" />
-  <%= link_to users_path do%>
+  <%= link_to user_path(user) do%>
   <div class="card">
      <h2><%= user.name%> </h2>
      <p> Number of posts: <%= user.posts_counter%></p>
   </div>
   <%end%>
+  <%if params[:controller] == 'users' %>
+     <%if params[:action] == 'show'%> 
+       <%=link_to 'Back', users_path ,class:"back-btn" %>
+     <%end%>
+  <%else%>
+     <%if params[:action] == 'index'%>
+       <%=link_to 'Back', user_path(user), class:"back-btn" %>        
+     <%end%>
+  <%end%>  
 </section>
