@@ -1,7 +1,7 @@
-<section class="user-info">
-<h4><%=post.title%> by <%=post.author.name%></h4>
- <p><%=post.text%></p>
- <small>
+<section class="post-info">
+<h4 class="title"><%=post.title%> by <%=post.author.name%></h4>
+ <p class="topic"><%=post.text%></p>
+ <small class="comments-likes-counter">
     Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%>       
 </small> 
 <%=link_to new_user_post_comment_path(post_id:post.id) do%>

@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Saied', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'developer') }
+  subject do
+    User.new(name: 'Saied', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'developer',
+             email: 'saied@gmail.com', password: '123456')
+  end
   before { subject }
 
   it 'name is nil or blank' do
@@ -26,21 +29,7 @@ RSpec.describe User, type: :model do
     test_case.name = 5
     expect(test_case).to_not be_valid
   end
-  it 'photo url is less than length of 20' do
-    test_case = subject
-    test_case.photo = 's' * 19
-    expect(test_case).to_not be_valid
-  end
-  it 'photo url is longer than length of 2000' do
-    test_case = subject
-    test_case.photo = 'a' * 2001
-    expect(test_case).to_not be_valid
-  end
-  it 'photo url is not string' do
-    test_case = subject
-    test_case.photo = 5
-    expect(test_case).to_not be_valid
-  end
+
   it 'posts counter is greater than or equal zero' do
     test_case = subject
     test_case.posts_counter = -1
