@@ -6,4 +6,8 @@ class Comment < ApplicationRecord
   def update_comments_counter_for_post
     post.update(comments_counter: post.comments.count) if post.present?
   end
+
+  def as_json(options={})
+    super(:except => [:created_at, :updated_at])
+  end
 end
