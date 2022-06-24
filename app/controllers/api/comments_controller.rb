@@ -1,8 +1,9 @@
 class Api::CommentsController < ApplicationController
-  before_action :set_post, only: %i[index create show update destroy]
-
-  def index  
-    render :json => @post.comments, status: :ok
+  
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+    render :json => @comments, status: :ok
   end
 
   def create
