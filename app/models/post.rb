@@ -17,4 +17,8 @@ class Post < ApplicationRecord
   def recent_comments
     comments.includes(:author).order('created_at desc').limit(5)
   end
+
+  def as_json(_options = {})
+    super(except: %i[created_at updated_at])
+  end
 end

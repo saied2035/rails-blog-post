@@ -4,6 +4,10 @@ class PostsController < ApplicationController
     @user = all_users_post_controller
     @current_user = current_user
     @posts = @user.posts.includes(:comments).order('id asc')
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show

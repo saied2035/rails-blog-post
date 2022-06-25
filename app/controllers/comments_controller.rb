@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!
   after_action :save_my_previous_url, only: [:new]
   def new
     respond_to do |format|
