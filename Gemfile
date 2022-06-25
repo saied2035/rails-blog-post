@@ -20,7 +20,9 @@ gem 'puma', '~> 5.0'
 
 # installing devise gem
 gem 'devise'
-
+gem 'devise-jwt'
+gem 'jwt'
+gem 'rack-cors'
 # installing cancancan
 gem 'cancancan', '~> 3.3'
 
